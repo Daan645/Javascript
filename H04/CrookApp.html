@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CrookApp</title>
+    <style>
+        #slideholderOog {
+            height: 250px;
+            width: 600px;
+            transition: 2s;
+            margin: auto;
+
+        }
+
+
+        #slideholderNeus {
+            height: 180px;
+            width: 600px;
+            transition: 2s;
+            margin: auto;
+        }
+
+
+        #slideholderMond {
+            height: 380px;
+            width: 600px;
+            transition: 2s;
+            margin: auto;
+        }
+
+        body {
+            background-image: url("../Resources/bodybacgroundmonkeycrook.jpg");
+            background-size: 1920px 1080px;
+            margin: 0px;
+
+
+        }
+
+        header {
+            height: 80px;
+        }
+
+
+    </style>
+
+
+</head>
+
+<header>
+
+
+</header>
+<body>
+<div id="slideholderOog"></div>
+<div id="slideholderNeus"></div>
+<div id="slideholderMond"></div>
+<script>
+    var plaatjes = [1, 2, 3];
+    var teller = 0;
+    var slideholderOog = document.getElementById("slideholderOog");
+    slideholderOog.style.backgroundImage = "url('../Resources/aapoog1.jpg')";
+
+    var slideholderNeus = document.getElementById("slideholderNeus");
+    slideholderNeus.style.backgroundImage = "url('../Resources/aapneus1.jpg')";
+
+    var slideholderMond = document.getElementById("slideholderMond");
+    slideholderMond.style.backgroundImage = "url('../Resources/aapmond1.jpg')";
+
+    slideholderOog.addEventListener("click", function () {
+        var aapnr = getAap();
+        slideholderOog.style.backgroundImage = "url('../Resources/aapoog" + aapnr + ".jpg')";
+
+    });
+
+    slideholderNeus.addEventListener("click", function () {
+        var aapnr = getAap();
+        slideholderNeus.style.backgroundImage = "url('../Resources/aapneus" + aapnr + ".jpg')";
+
+    });
+
+    slideholderMond.addEventListener("click", function () {
+        var aapnr = getAap();
+        slideholderMond.style.backgroundImage = "url('../Resources/aapmond" + aapnr + ".jpg')";
+
+    });
+
+    function getAap() {
+        if (teller >= plaatjes.length) {
+            teller = 1;
+        } else {
+            teller++;
+        }
+        console.log(teller);
+        return teller;
+
+    }
+
+
+</script>
+
+
+</body>
+</html>
