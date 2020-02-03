@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose your Monkey</title>
+    <style>
+
+        body {
+            text-align: center;
+
+        }
+
+        div.picture-holder {
+            box-sizing: border-box;
+            height: 450px;
+            width: 300px;
+            float: left;
+            background-color: red;
+            border: solid 1px black;
+        }
+
+        #pics {
+            width: 900px;
+            height: 1350px;
+            border: solid 1px black;
+            font-size: 0px;
+            margin: auto;
+        }
+
+        div.favoriet {
+            width: 300px;
+            height: 150px;
+            background-color: blue;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Monkeychooser</h1>
+<h3>Choose your favorite monkey!</h3>
+<div id="pics">
+
+
+</div>
+
+<script>
+    pics = document.getElementById("pics");
+    createPicsHolders();
+    createAapImages();
+
+
+    function createPicsHolders() {
+        for (var i = 0; i < 9; i++) {
+            pictureHolder = document.createElement("div");
+            pictureHolder.className = "picture-holder";
+            pictureHolder.id = "picture-holder-" + i;
+            pics.appendChild(pictureHolder);
+        }
+    }
+
+    function createAapImages() {
+        console.log("HALLO");
+        pictureHolders = document.getElementsByClassName("picture-holder");
+        for (var i = 0; i < pictureHolders.length; i++) {
+            favoriet = document.createElement("div");
+            favoriet.className = "favoriet";
+            favoriet.id = "favoriet" + (i + 1);
+            aapPlaatje = document.createElement("img");
+            aapPlaatje.src = "../Resources/aapchooser" + (i + 1) + ".jpg";
+            aapPlaatje.id = (i + 1);
+            aapPlaatje.addEventListener("click", function () {
+                maakFavoriet(this.id);
+console.log(this.id);
+            });
+            pictureHolders[i].appendChild(favoriet);
+            pictureHolders[i].appendChild(aapPlaatje);
+        }
+    }
+
+    function maakFavoriet(id) {
+        console.log("Maak mij Favoriet! Het gaat om aap..." + id);
+        notsofavoriet = document.getElementsByClassName("favoriet");
+
+        for (var i = 1; 1 < notsofavoriet.length; i++) {
+            notsofavoriet[i].style.backgroundImage = "none";
+console.log(notsofavoriet);
+        }
+        favoriet = document.getElementById("favoriet" + id);
+        favoriet.style.backgroundImage = "url('../Resources/hart.png')";
+console.log(favoriet);
+    }
+
+
+    
+</script>
+
+</body>
+</html>
